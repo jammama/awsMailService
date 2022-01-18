@@ -27,6 +27,18 @@ public class senderTest {
     private MockMvc mvc;
 
     @Test
+    public void socket_test() throws Exception {
+        String socket = "socket";
+
+        mvc.perform(get("/socket")
+                        .param("id", "id")
+                        .param("msg", "msg")
+                )
+                .andExpect(status().isOk())
+                .andExpect(content().string(socket));
+    }
+
+    @Test
     public void hello_return() throws Exception {
         String hello = "hello";
 
